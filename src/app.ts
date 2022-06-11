@@ -139,8 +139,8 @@ const queue4 = new ArrowQueue(1000);
     let maxScore;
     let maxScoreText;
     scene.create = async () => {
-        // levels = [level1(), level2(), level3(), level4()]
-        levels = [level4()]
+         levels = [level1(), level2(), level3(), level4()]
+       // levels = [level4()]
 
         rightSprite = right()
         downSprite = down()
@@ -244,8 +244,8 @@ const queue4 = new ArrowQueue(1000);
 
             timer += delta
             if(timer> 3000) {
-                missesText.setText(`Misses ${queue.misses}`)
-                text.setText(`Score ${queue.getScore()}`)
+                missesText.setText(`Misses ${queue.misses + queue2.misses + queue3.misses + queue4.misses}`)
+                text.setText(`Score ${queue.getScore()+queue2.getScore() + queue3.getScore() + queue4.getScore()}`)
                 if(levelArrows.length) {
                     const q1 = queue.size() < queue.getMaxSize()
                     const q2 = queue2.size() < queue2.getMaxSize()
@@ -289,6 +289,9 @@ const queue4 = new ArrowQueue(1000);
     game.events.on('leftArrowHit', (currentSprtie, key) => {
         if(downLeft && currentSprtie.visible) {
             queue.setScore(1)
+            queue2.setScore(1)
+            queue3.setScore(1)
+            queue4.setScore(1)
             currentSprtie.tint =0;
             currentSprtie.visible = false
             currentSprtie.enabled = false
@@ -304,6 +307,9 @@ const queue4 = new ArrowQueue(1000);
     game.events.on('upArrowHit', (currentSprtie, key) => {
         if(downUp && currentSprtie.visible) {
             queue.setScore(1)
+            queue2.setScore(1)
+            queue3.setScore(1)
+            queue4.setScore(1)
             currentSprtie.tint = 0;
             currentSprtie.visible = false
             currentSprtie.enabled = false
@@ -319,6 +325,9 @@ const queue4 = new ArrowQueue(1000);
     game.events.on('downArrowHit', (currentSprtie,key) => {
         if(downDown && currentSprtie.visible) {
             queue.setScore(1)
+            queue2.setScore(1)
+            queue3.setScore(1)
+            queue4.setScore(1)
             currentSprtie.tint = 0;
             currentSprtie.visible = false
             currentSprtie.enabled = false
@@ -334,6 +343,9 @@ const queue4 = new ArrowQueue(1000);
     game.events.on('rightArrowHit', (currentSprtie, key) => {
         if(downRight && currentSprtie.visible) {
             queue.setScore(1)
+            queue2.setScore(1)
+            queue3.setScore(1)
+            queue4.setScore(1)
             currentSprtie.tint = 0;
             currentSprtie.visible = false
             currentSprtie.enabled = false
