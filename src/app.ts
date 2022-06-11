@@ -172,7 +172,7 @@ const queue4 = new ArrowQueue(1000);
             return totalArrows
         })
         const p = await Promise.all(all)
-        maxScore = p.map((a) =>  a.length).reduce((a,b) => a+b) - 4
+        maxScore = p.map((a) =>  a.length).reduce((a,b) => a+b)
 
 
         scene.physics.world.enable([rightSprite, upSprite, downSprite, leftSprite])
@@ -287,7 +287,7 @@ const queue4 = new ArrowQueue(1000);
     }
 
     game.events.on('leftArrowHit', (currentSprtie, key) => {
-        if(downLeft && currentSprtie.visible) {
+        if(downLeft && currentSprtie.visible &&!currentSprtie.isTinted) {
             queue.setScore(1)
             queue2.setScore(1)
             queue3.setScore(1)
@@ -305,7 +305,7 @@ const queue4 = new ArrowQueue(1000);
         }
     })
     game.events.on('upArrowHit', (currentSprtie, key) => {
-        if(downUp && currentSprtie.visible) {
+        if(downUp && currentSprtie.visible && !currentSprtie.isTinted) {
             queue.setScore(1)
             queue2.setScore(1)
             queue3.setScore(1)
@@ -323,7 +323,7 @@ const queue4 = new ArrowQueue(1000);
 
     })
     game.events.on('downArrowHit', (currentSprtie,key) => {
-        if(downDown && currentSprtie.visible) {
+        if(downDown && currentSprtie.visible && !currentSprtie.isTinted) {
             queue.setScore(1)
             queue2.setScore(1)
             queue3.setScore(1)
@@ -341,7 +341,7 @@ const queue4 = new ArrowQueue(1000);
 
     })
     game.events.on('rightArrowHit', (currentSprtie, key) => {
-        if(downRight && currentSprtie.visible) {
+        if(downRight && currentSprtie.visible && !currentSprtie.isTinted) {
             queue.setScore(1)
             queue2.setScore(1)
             queue3.setScore(1)
